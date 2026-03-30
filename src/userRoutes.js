@@ -1,5 +1,5 @@
 import {Router} from "express"
-import { getAllUsers, getVoluntarios, getONGs } from "../controllers/userContrs.js"
+import { getAllUsers, getVoluntarios, getONGs } from "./userContrs.js"
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
