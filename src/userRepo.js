@@ -1,4 +1,4 @@
-import users from '../database/usuarios.json' with {type:'json'}
+import users from './usuarios.json' with {type:'json'}
 import fs from 'fs'
 
 const userRepo = {
