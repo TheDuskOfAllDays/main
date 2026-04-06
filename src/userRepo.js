@@ -1,15 +1,20 @@
-import users from './usuarios.json' with {type:'json'}
 import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const p = path.join(__dirname, './usuarios.json')
 
 const userRepo = {
-        readAll(){
-        return users
+    readAll() {
+        return JSON.parse(fs.readFileSync(p, 'utf-8') || '[]')
     },
-    readVoluntarios(){
-        return users.filter(user => user.tipo === 'voluntario');
+    readVoluntarios() {
+        return this.readAll().filter(u => u.tipo === 'voluntario')
     },
-    readONGs(){
-        return users.filter(user => user.tipo === 'ong');
+    readONGs() {
+        return this.readAll().filter(u => u.tipo === 'ong')
     }
 }
 
